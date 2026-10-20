@@ -20,6 +20,7 @@ npm run dev
 npm run typecheck
 npm test
 npm run build
+npm run test:smoke   # precisa do build feito e de `npx playwright install chromium` uma vez
 ```
 
 Cada mudança enviada ao GitHub roda essas verificações automaticamente (GitHub Actions). Ao entrar na `main`,

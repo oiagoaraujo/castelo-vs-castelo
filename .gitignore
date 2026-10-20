@@ -6,3 +6,5 @@ coverage/
 .env
 .env.*
 CLAUDE.local.md
+test-results/
+playwright-report/
