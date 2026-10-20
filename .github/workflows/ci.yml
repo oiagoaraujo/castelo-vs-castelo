@@ -31,11 +31,25 @@ jobs:
         with:
           path: dist
 
+  fumaca:
+    name: Teste de fumaça (abre o jogo num celular simulado)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:smoke
+
   publicar:
     name: Publicar no GitHub Pages
     # Só publica quando a mudança entra na main e tudo passou.
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: verificar
+    needs: [verificar, fumaca]
     runs-on: ubuntu-latest
     permissions:
       pages: write

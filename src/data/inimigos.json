@@ -1,0 +1,7 @@
+{
+  "infantaria": {
+    "nome": "Infantaria",
+    "velocidade": 45,
+    "raio": 9
+  }
+}
